@@ -1,0 +1,79 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+
+{% if contas %}
+    <div class="responsive-table">
+        <table class="contacts-table">
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Conta</th>
+                    <th class="table-header">Vencimento</th>
+                    <th class="table-header">Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for conta in contas %}
+                    <tr class="table-row">
+                        <td class="table-cel">
+                            {{ conta.id }}
+                        </td>
+                        <td class="table-cel">
+                            {% if conta.Nome_conta == "Internet" %}
+                                <a
+                                class="table-link"
+                                target="_blank"
+                                href="https://fnx.adsnet-telecom.net.br/central/index.hhvm"
+                                >
+                            {% elif conta.Nome_conta == "Luz" %}
+                                <a
+                                class="table-link"
+                                target="_blank"
+                                href="https://agenciavirtual.light.com.br/AGV_Segunda_Via_VW/Segunda_Via.aspx"
+                                >
+                            {% elif conta.Nome_conta == "Agua" %}
+                                <a
+                                class="table-link"
+                                target="_blank"
+                                href="https://agenciavirtual.riomaissaneamento.com.br/servicos/segunda-via/"
+                                >
+
+                            {% elif conta.Nome_conta == "Plano de saude" %}
+                                <a
+                                class="table-link"
+                                target="_blank"
+                                href="https://www.unimedvr.com.br/servicos/php/boleto2via/"
+                                >
+
+                            {% else %}
+                                <a
+                                class="table-link"
+                                target="_blank"
+                                href="#"
+                                >
+                            {% endif %}
+                                {{ conta.Nome_conta }}
+                            </a>
+                        </td>
+                        <td class="table-cel">
+                            {{ conta.vencimento }}
+                        </td>
+                        <td class="table-cel">
+                            {{ conta.status }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+<div class="single-contact">
+    <h1 class="single-contact-name">
+        Nada foi encontrado!
+    </h1>
+</div>
+{% endif %}
+
+{% endblock content %}

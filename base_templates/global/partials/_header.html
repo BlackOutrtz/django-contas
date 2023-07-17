@@ -1,0 +1,47 @@
+<header class="header">
+    <h1 class="header-heading">
+        <a href="{% url 'index' %}" class="header-link">
+            Contas
+        </a>
+    </h1>
+
+    <nav class="menu">
+        <ul class="menu-list">
+            <li class="menu-item"></li>
+                <a href="{% url 'luz' %}" class="menu-link">
+                    Luz
+                </a>
+            </li>
+            <li class="menu-item"></li>
+                <a href="{% url 'internet' %}" class="menu-link">
+                    internet
+                </a>
+            </li>
+            <li class="menu-item"></li>
+                <a href="{% url 'agua' %}" class="menu-link">
+                    Àgua
+                </a>
+            </li>
+            <li class="menu-item"></li>
+                <a href="{% url 'plano' %}" class="menu-link">
+                    Plano De Saúde
+                </a>
+            </li>
+        </ul>
+        <div class="search">
+            <form
+                action="{% url 'search' %}"
+                method="GET"
+            >
+              <input
+                type="search"
+                class="search-input"
+                placeholder="Pesquisar"
+                id="search"
+                name="search"
+                value="{{ search_value }}"
+            >
+            </form>
+        <div>
+    </nav>
+</header>
